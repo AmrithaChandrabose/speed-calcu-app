@@ -10,7 +10,7 @@ function Calculator() {
     e.preventDefault();
 
     if (distance && time) {
-      setSpeed((Number(distance) / Number(time)).toFixed(2));
+      setSpeed((Number(distance) / Number(time)));
     }
   };
 
@@ -18,13 +18,13 @@ function Calculator() {
     <div>
       <div
         className="m-4 justify-content-center text-center p-4 shadow rounded bg-info" style={{ width: "400px" }} >
-        <Form onSubmit={calculateSpeed}>
+        <Form >
           <Form.Control type="number" placeholder="Distance" className="mb-3" value={distance} onChange={(e) => setDistance(e.target.value)} />
           <Form.Control type="number" placeholder="Time" className="mb-3" value={time} onChange={(e) => setTime(e.target.value)} />
           <Form.Control type="text"  variant="info" placeholder="Speed" className="mb-3" value={speed} readOnly/>
 
           <div className="d-flex gap-2 mt-3">
-            <Button type="submit" variant="dark" className="w-100">Calculate Speed </Button>
+            <Button onClick={calculateSpeed} type="submit" variant="dark" className="w-100">Calculate Speed </Button>
           </div>
         </Form>
       </div>
